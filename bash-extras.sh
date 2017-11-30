@@ -1,53 +1,10 @@
 #!/bin/bash
 
 source ~/github/iconify/bash/bash-scripts/nextfinder.sh
-
-function quatro() {
-    cd ~/github/iconify/quatro-icons/
-}
-
-function products() {
-    cd ~/Dropbox/iconify-products/
-}
-
-function istock() {
-    cd ~/Dropbox/iconify-products/collections/istock-sets/
-}
+source ~/github/iconify/bash/bash-scripts/git.sh
 
 function vectoricons_staging() {
     ssh vectoricons-scott-stage@104.196.191.243 -p 2222
-}
-
-function diversity() {
-    cd ~/github/iconify/diversity-icons
-}
-
-function vectorme() {
-    cd ~/github/iconify/vectoricons
-}
-
-function products() {
-    cd ~/Dropbox/000-iconify-products/collections/
-}
-
-function webme() {
-    cd ~/Documents/Websites/
-}
-
-function org() {
-  mkdir 64px
-  mkdir 128px
-  mkdir 256px
-  mkdir 512px
-  mkdir 32px
-  mkdir svg
-
-  mv *@32* 32px/
-  mv *@64* 64px/
-  mv *@128* 128px/
-  mv *@256* 256px/
-  mv *@512* 512px/
-  mv *.svg svg/
 }
 
 function www {
@@ -126,56 +83,8 @@ function num() {
     rename
 }
 
-# Add, commit, set-upstream, and push local branch
-function gitme() {
-    if [ -z "$1" ]
-    then
-        echo "You must enter a git commit message"
-    else
-        git status
-        echo "Adding new files to track"
-        git add *
-        echo "commit -a -m \"$1\""
-        git commit -a -m "$1"
-        echo "Set the upstream branch to track if none exists"
-        gitsetupstream
-        echo "Push the updates to the remote origin"
-        git push
-    fi
-}
-
-# Set the upstream for a local branch if it does not exist
-function gitsetupstream {
-    BRANCHNAME=`git rev-parse --abbrev-ref HEAD`
-    if [[ $(git branch -r | grep -w "$BRANCHNAME" | wc -c) -ne 0 ]]; then
-		echo "Branch $BRANCHNAME already has an upstream"
-	else
-		echo "Setting upstream for branch $BRANCHNAME"
-		git push --set-upstream origin "$BRANCHNAME"
-	fi
-}
-
-function gitall() {
-    if [ -z "$1" ]
-    then
-        echo "You have to enter a git commit message"
-    else
-        git status
-        git add *
-        echo "commit -a -m \"$1\""
-        git commit -a -m "$1"
-        git push --all --recurse-submodules=on-demand -u
-        # git push
-    fi
-}
-
-# CD to the git repo
-function gogit() {
-    cd ~/github
-}
-
 # Create clean icon package folder structure
-function org() {
+function icons_dir() {
   mkdir 64px
   mkdir 128px
   mkdir 256px
