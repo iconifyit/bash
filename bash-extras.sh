@@ -203,7 +203,7 @@ function sign {
 
 # Use FreeBSD ZIP instead of Mac ZIP for portability
 function myzip() {
-    if [ [-n $1] || [$1 == "-h]" ]; then
+    if [-n $1] || [$1 == "-h]" ] ; then
         echo " "
         echo "Usage: "
         echo " "
@@ -230,9 +230,9 @@ function myzip() {
 # Make a new strong password
 #
 # This function requires the `craic` binary written by George K. Flanagan
-# If you are using Mac, you can use the function as-is. For Linux you will need 
-# to change the body of the function to use the Linux words dictionary instead 
-# of Mac's words dictionary:
+# If you are using Mac, you can use the function as-is. For Linux you will need
+# to change the body of the function to use the Linux words dictionary instead
+# of Mac words dictionary:
 #
 #    /usr/local/bin/craic w9w9 -u -i /etc/linux.words -n 50 -m 12 > ~/Desktop/craic.txt
 #
@@ -240,14 +240,12 @@ function myzip() {
 # patters tells craic to create a password that is 'word-digit-word-digit'
 # -n = number of passwords
 # -m = password minimum length
-function makepass()
-{
+function makepass() {
   /usr/local/bin/craic w9w9 -u -i /usr/share/dict/words -n 50 -m 12 > ~/Desktop/craic.txt
 }
 
 # Create a version number from the current timestamp and POSIX path
-function getversion()
-{
+function getversion() {
   pwd > /tmp/x
   awk -F/ '{print $NF}' /tmp/x > /tmp/y
   mydir=`cat /tmp/y`
@@ -275,8 +273,7 @@ function time_stamp {
 }
 
 # Same as above only prints to stdout
-function print_version()
-{
+function print_version() {
   pwd > /tmp/x
   awk -F/ '{print $NF}' /tmp/x > /tmp/y
   mydir=`cat /tmp/y`
@@ -293,8 +290,7 @@ function print_version()
 BACKUPDIR=~/Documents/builds/
 
 # Creates a backup of the current folder
-function makebackup()
-{
+function makebackup() {
   pwd > /tmp/x
   awk -F/ '{print $NF}' /tmp/x > /tmp/y
   mydir=`cat /tmp/y`
@@ -318,11 +314,34 @@ function makebackup()
 }
 
 # Backup and delete current folder
-function nuke()
-{
+function nuke() {
   makebackup
   THISDIR=`pwd`
   echo "  Nuking $THISDIR..."
   sudo rm -R -f *
   echo "  Done."
+}
+
+# Displays a system Notification
+# @param {string} message   The message to display
+# @oaram {string} title     The title of the alert
+# @param {string} sound     The name of the system sound to play
+function notify() {
+    if [ -z "$1" ]; then
+        echo "You must provide a notification message"
+        return
+    else
+        message="$1"
+    fi
+    if [ -z "$2" ]; then
+        title="Alert"
+    else
+        title="$2"
+    fi
+    if [ -z "$3" ]; then
+        sound="Purr"
+    else
+        sound="$3"
+    fi
+    osascript -e "display notification \"$message\" with title \"$title\" sound name \"$sound\""
 }
