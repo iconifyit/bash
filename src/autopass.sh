@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Dependencies:
+# - https://github.com/georgeflanagin/passwordgenerator
+
 # Generate a list of secure, random passwords
 
 function autopass

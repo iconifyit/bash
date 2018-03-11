@@ -6,7 +6,7 @@
 # This function will make a backup of the contents of the current directory
 # then delete all of its contents.
 
-function makebackup()
+function makebackup
 {
   pwd > /tmp/x
   awk -F/ '{print $NF}' /tmp/x > /tmp/y

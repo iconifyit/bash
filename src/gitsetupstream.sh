@@ -5,7 +5,8 @@
 
 # Set the upstream for a local branch if it does not exist
 
-function gitsetupstream {
+function gitsetupstream 
+{
     BRANCHNAME=`git rev-parse --abbrev-ref HEAD`
     if [[ $(git branch -r | grep -w "$BRANCHNAME" | wc -c) -ne 0 ]]; then
         echo "Branch $BRANCHNAME already has an upstream"

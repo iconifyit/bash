@@ -5,7 +5,7 @@
 
 # CD to the git repo
 
-function gogit() 
+function gogit
 {
     cd $MYGITDIR
 }

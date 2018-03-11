@@ -6,7 +6,8 @@
 
 # Add, commit, set-upstream, and push local branch
 
-function gitme() {
+function gitme
+{
     if [ -z "$1" ]
     then
         echo "You must enter a git commit message"
