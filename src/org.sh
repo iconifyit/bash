@@ -1,11 +1,13 @@
 #!/bin/bash
 
 # Depenencies:
-# - ./vars.sh
+# - None
 
-# Create clean icon package folder structure
+# Create clean icon package folder structure. 
+# NOTE: This is specific to my icon products folder structure and only useful
+# as an example for creating directories and moving files.
 
-function org() 
+function org 
 {
   mkdir 64px
   mkdir 128px

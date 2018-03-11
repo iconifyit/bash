@@ -5,7 +5,8 @@
 
 # Recursively commit & push including submodules
 
-function gitall() {
+function gitall
+{
     if [ -z "$1" ]
     then
         echo "You have to enter a git commit message"

@@ -5,7 +5,7 @@
 
 # Create a tarball of the current folder
 
-function tarit() 
+function tarit 
 {
   date >/tmp/x
   sed 's/  / /g' /tmp/x>/tmp/y

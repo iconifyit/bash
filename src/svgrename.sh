@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Depenencies:
-# - none
+# - None
 
 # Rename all SVG files in a folder
 
-function svgrename() 
+function svgrename
 {
     thisdir=${PWD##*/}
     a=1

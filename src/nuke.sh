@@ -7,7 +7,8 @@
 
 # This function will make a backup of the contents of the current directory
 # then delete all of its contents.
-function nuke()
+
+function nuke
 {
   makebackup
   THISDIR=`pwd`

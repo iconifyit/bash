@@ -5,7 +5,7 @@
 
 # Prefix all filenames in a folder
 
-function prefixit() 
+function prefixit 
 {
     if [ -z "$1" ]; then
         echo "You must provide a prefix"

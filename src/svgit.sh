@@ -6,7 +6,7 @@
 
 # Run SVGO Node module on a folder of SVG fles
 
-function svgit() 
+function svgit
 {
     if [ -z "$1" ]; then
         echo "You must provide a folder name"
