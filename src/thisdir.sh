@@ -5,7 +5,7 @@
 
 # Print just the directory name from PWD
 
-function dirname
+function thisdir
 {
   pwd  >/tmp/x
   STR=`cat /tmp/x`
