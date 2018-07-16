@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# Renames files using a pattern you provide and replacing a string
-# Example: `rename 'icon___*.eps' 'icon___'`
+# Renames all files in current dir using a pattern search and replace
+# Example: `rename 'foo__*.eps' 'foo__' 'bar__'`
+
 function rename() {
 	newdir='renamed'
 	echo "Searching for ${pattern}"
