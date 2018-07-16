@@ -2,6 +2,8 @@
 
 # Source all of the .sh files in ./src/
 
-for f in ~/github/iconify/bash/src/*.sh; do source $f; echo "sourcing : $f"; done
+src=~/github/iconify/bash/src
+n=0
+for f in $src/*.sh; do source $f; let "n++"; done
 
-echo "Shells sourced"
+echo "$n Shells sourced in $src"
