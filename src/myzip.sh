@@ -4,8 +4,8 @@
 # - gpg
 
 # Use FreeBSD ZIP instead of Mac ZIP for portability
-# @var $1	The name of the zip file
-# @return	Will move the resulting ZIP to the Desktop
+# @var $1    The name of the zip file
+# @return    Will move the resulting ZIP to the Desktop
 
 function myzip
 {

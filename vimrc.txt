@@ -1,0 +1,26 @@
+filetype on
+
+
+au! BufRead,BufNewFile *.json setfiletype json
+
+set number
+syntax on
+set scrolloff=25
+
+set ruler
+set statusline=
+set laststatus=2
+set rulerformat=Line:%l,\ Col:%c%=%P
+if has("statusline") 
+    set statusline=%<%f\ %h%m%r%=%k[U+%04B]\ %-12.(Line:%l,Col:%c%)\ %P 
+endif 
+
+set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab 
+map , !}fmt
+
+
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+colorscheme distinguished

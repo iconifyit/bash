@@ -4,7 +4,7 @@
 # - gpg
 
 # Digitally sign a file
-# @var $1	The file to sign
+# @var $1    The file to sign
 
 function sign 
 {

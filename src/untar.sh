@@ -4,7 +4,7 @@
 # - None
 
 # Decompress a tarball
-# @var $1 	The tarball name
+# @var $1     The tarball name
 
 function untar
 {
