@@ -2,8 +2,25 @@
 
 # Source all of the .sh files in ./src/
 
-src=~/github/iconify/bash/src
-n=0
-for f in $src/*.sh; do source $f; let "n++"; done
+bash_folder=~/github/iconify/bash
 
-echo "$n Shells sourced in $src"
+source "$bash_folder/functions.sh"
+
+src="$bash_folder/src"
+
+if [ ! -z "$(ls -A $src)" ]
+then
+    n=0
+    for f in $src/*.sh; do source $f; let "n++"; done
+    echo "$n Shells sourced in $src"
+fi
+
+aliases="$bash_folder/aliases"
+
+if [ ! -z "$(ls -A $aliases)" ]
+then
+    n=0
+    for f in ${aliases}/*.sh; do source $f; let "n++"; done
+    echo "$n Aliases sourced in $aliases"
+fi
+
