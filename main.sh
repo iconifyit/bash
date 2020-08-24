@@ -23,4 +23,3 @@ then
     for f in ${aliases}/*.sh; do source $f; let "n++"; done
     echo "$n Aliases sourced in $aliases"
 fi
-
